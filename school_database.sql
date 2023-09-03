@@ -68,3 +68,6 @@ on students.s_id = courses.s_id
 inner join instructors
 on students.s_id = instructors.s_id
 
+
+select * from instructors;
+
