@@ -136,5 +136,9 @@ select * from students;
 delete students
 where s_id = 16;
 
+select gender, count(gender) as number 
+from students
+group by gender;
+
 
 
