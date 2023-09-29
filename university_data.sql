@@ -79,3 +79,15 @@ from student
 where lname = 'hussain';
 
 select * from student;
+
+-- order by function usage
+select *
+from student
+order by fname desc;
+
+-- limit function usage
+select top 3 *
+from student
+where age >= 23
+order by age desc;
+
