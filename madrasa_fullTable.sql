@@ -133,8 +133,51 @@ from
 ((courses left join students on students.s_id = courses.s_id)
 left join instructor on courses.c_id = instructor.c_id);
 
-select * from courses;
+select * from students;
+
+-- union of two statements
+select * from students where age = 23 and gender = 'female'
+intersect
+select * from students where l_name = 'kiran';
+
+-- use group by and having statement
+select gender, count(gender)
+from students
+group by gender
+having gender = 'male' or gender = 'female';
+
+-- exists function
+select * from students
+where exists
+(select * from students);
+
+-- copy info into a new table
+select f_name, age
+into female_students
+from students
+where gender = 'female';
+
+
+select * from female_students;
+
+-- drop table student
+drop table student;
+
+-- copy data from one table into another existing table
+insert into female_students
+select f_name, age
+from students
+where gender = 'male';
+
+select * from students;
+
+-- cases in sql
+select f_name, age, gender,
+case
+	when gender = 'male' then 'Male is slected'
+	when gender = 'female' then 'Female is selected'
+	else 'No one is selected'
+end as gen_desc
+from students;
 
 -- 
-
-
