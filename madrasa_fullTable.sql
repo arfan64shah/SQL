@@ -89,3 +89,52 @@ order by age desc, f_name;
 select gender, count(gender) as number from students
 group by gender;
 
+-- select students who whose name starts with a and age 23
+select *
+from students
+where f_name not like'a%' or age = 23;
+
+--update age to 24 where f_name is adiba
+update students
+set age = 23
+where f_name = 'adiba';
+
+select * from students;
+
+-- delete entity from where f_name is adiba
+delete
+from instructor
+where i_name = 'dilshad';
+
+-- insert the deleted value into the table
+insert into instructor
+values (10, 'dilshad', 101);
+
+-- use in operator
+select *
+from students
+where f_name in ('arfan', 'adiba');
+
+-- use between operator
+select *
+from students
+where age between 23 and 24;
+
+
+-- join
+select students.f_name, courses.c_name
+from students
+full join courses
+on students.s_id = courses.s_id;
+
+-- joins on three tables
+select students.f_name, courses.c_name, instructor.i_name
+from 
+((courses left join students on students.s_id = courses.s_id)
+left join instructor on courses.c_id = instructor.c_id);
+
+select * from courses;
+
+-- 
+
+
