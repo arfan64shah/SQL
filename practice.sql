@@ -197,3 +197,48 @@ order by empfname asc;
 	Write a query to retrieve the EmpFname and EmpLname in a single column as “FullName”. 
 	The first name and the last name must be separated with space.
 */
+select employee.empfname + ' ' + employee.emplname as fullname
+from employee;
+select concat(employee.empfname, ' ', employee.emplname) as fullname
+from employee;
+
+/*
+	Write a query find number of employees whose DOB is 
+	between 02/05/1970 to 31/12/1975 and are grouped according to gender
+*/
+select gender, count(*) as number
+from employee
+where dob between '1980-05-02' and '1995-12-31'
+group by gender;
+
+/*
+	Write a query to fetch all the records from the EmployeeInfo table ordered by EmpLname in descending order 
+	and Department in the ascending order.
+*/
+select * 
+from employeeinfo
+order by emplname desc, department asc;
+
+/*
+	Write a query to fetch details of employees whose EmpLname ends with an alphabet ‘A’ and contains five alphabets.
+*/
+select *
+from employeeinfo
+where emplname like '____a';
+
+/*
+	Write a query to fetch details of all employees excluding the 
+	employees with first names, “Sanjay” and “Sonia” from the EmployeeInfo table.
+*/
+select *
+from employeeinfo
+where empfname <> 'sanjay' and empfname <> 'sonia';
+
+/*
+	Write a query to fetch details of employees with the address as “DELHI(DEL)”.
+*/
+select *
+from employee
+where address = 'delhi(del)';
+
+--https://www.edureka.co/blog/interview-questions/sql-query-interview-questions#fetchname
