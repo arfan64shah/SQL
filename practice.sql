@@ -148,7 +148,7 @@ select getdate();
 /*
 	Write a query to retrieve the first four characters of  EmpLname from the EmployeeInfo table.
 */
-select substring(employeeinfo.emplname, 1, 4) as lastname
+select substring(employeeinfo.emplname, 1, 3) as lastname
 from employeeinfo;
 
 select * from employeeinfo;
@@ -160,4 +160,40 @@ update employeeinfo
 set address = 'mumbai(bom)'
 where project = 'p3';
 
+SELECT SUBSTRING(Address, 1, CHARINDEX('(', Address) - 1) AS PlaceName
+FROM EmployeeInfo;
 
+/*
+	Write a query to create a new table which consists of data and structure copied from the other table.
+*/
+select *
+into employee
+from employeeinfo;
+
+select * from employee;
+
+/*
+	Write q query to find all the employees whose salary is between 50000 to 100000.
+*/
+select * 
+from employeeposition
+where salary between 50000 and 100000;
+
+/*
+	Write a query to find the names of employees that begin with ‘S’
+*/
+select *
+from employee
+where empfname like 's%';
+
+/*
+	Write a query to fetch top N records.
+*/
+select top 3 *
+from employee
+order by empfname asc;
+
+/*
+	Write a query to retrieve the EmpFname and EmpLname in a single column as “FullName”. 
+	The first name and the last name must be separated with space.
+*/
